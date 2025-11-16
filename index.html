@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+ <html lang="en">
+ 
+
+ <head>
+     
+     <meta charset="UTF-8">     <!-- ovo za simbole kad se piše šđžć... da ne budu čudni simboli-->
+     <title>Sajt</title>
+     <link rel="stylesheet" href="style.css"> <!-- ovo spaja style css sa ovim-->
+
+
+ </head>
+
+ <body>
+     <button id="sledecastrana">Sledeća strana</button>
+     <h1 id="glavni-naslov">Upoznaj XML: Elementi, Atributi i Komentari</h1>
+
+
+     <div id="tema">
+
+         <img src="slike/xml.png" alt="xml slika" style="width: 100px; height: auto; display: inline-block; vertical-align: middle;"> <!-- ovo dvoje su ovoliko dugi da bi bili u isti red-->
+         <h1 style="display: inline-block; position: relative; top: 30px; ">Osnovno značenje i istorija</h1>  <!-- ovo dvoje su ovoliko dugi da bi bili u isti red-->
+
+         <p>
+             XML (eXtensible Markup Language) je jezik za označavanje podataka koji služi za organizovanje i čuvanje informacija na strukturisan način.
+         </p>
+         <p>
+             Za razliku od običnog teksta, XML omogućava da se podaci lakše čitaju i obrađuju i od strane ljudi i od strane računara.
+
+         </p>
+         <p>
+             Ideja jezika za označavanje podataka je da se korisni sadržaj uokviri odgovarajućim oznakama.
+         </p>
+         <p>
+             Oznake bi trebale biti jednostavno čitljive i razumljive i čoveku koji ih gleda u bilo kojem programu za uređivanje teksta
+         </p>
+         <p>
+             a i računalni programi koji parsiraju taj sadržaj trebali bi moći na jednostavan način izvaditi određene podatke.
+         </p>
+         <img src="slike/html.png" alt="html slika" style="width: 110px; height: auto; display: inline-block; vertical-align: middle; ">
+         <h1 style="display: inline-block; position: relative; top: 30px; ">HTML</h1>
+         <p>
+             HTML je nastao kada je Tim Berners Lee izabrao jedan mali skup oznaka iz SGML skupa koji je korišten na CERNu i primjenio ih na formatiranje dokumenata.
+
+         </p>
+
+         <p>HTML je imao mali skup oznaka koje su opisivale osnovne dijelove dokumenta. Programi koji su tumačili strukturu takvih dokumenata bili su HTML preglednici.</p>
+
+         <p>
+             Ova web stranica, kao i mnoge druge, su potpuno ili djelomično označene HTML jezikom.
+         </p>
+
+
+     </div>
+
+     <!-- ja Allahami nzm sta je ovo dole, al ne dira-->
+
+     <div id="xml">
+         <div id="sadrzaj-xml"></div>
+     </div>
+
+     <script>
+         const xmlData = `
+<katalog>
+                             <knjiga>
+                                 <naziv>Gospodar Prstenova</naziv>
+                                 <autor>J.R.R. Tolkien</autor>
+                                 <cena>1200</cena>
+                             </knjiga>
+                             <knjiga>
+                                 <naziv>Harry Potter i Kamen mudrosti</naziv>
+                                 <autor>J.K. Rowling</autor>
+                                 <cena>800</cena>
+                             </knjiga>
+                             <knjiga>
+                                 <naziv>Alhemičar</naziv>
+                                 <autor>Paulo Coelho</autor>
+                                 <cena>500</cena>
+                             </knjiga>
+                             <knjiga>
+                                 <naziv>1984</naziv>
+                                 <autor>George Orwell</autor>
+                                 <cena>600</cena>
+                             </knjiga>
+                             <knjiga>
+                                 <naziv>Mali princ</naziv>
+                                 <autor>Antoine de Saint-Exupéry</autor>
+                                 <cena>400</cena>
+                             </knjiga>
+                             <knjiga>
+                                 <naziv>Lovac u žitu</naziv>
+                                 <autor>J.D. Salinger</autor>
+                                 <cena>550</cena>
+                             </knjiga>
+                             <knjiga>
+                                 <naziv>Ime ruže</naziv>
+                                 <autor>Umberto Eco</autor>
+                                 <cena>900</cena>
+                             </knjiga>
+                             <knjiga>
+                                 <naziv>Memoari gejše</naziv>
+                                 <autor>Arthur Golden</autor>
+                                 <cena>700</cena>
+                             </knjiga>
+</katalog>
+
+`;
+
+         const parser = new DOMParser();
+         const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+         const knjige = xmlDoc.getElementsByTagName("knjiga");
+         const container = document.getElementById("sadrzaj-xml");
+
+         let html = "<table border='1' cellpadding='5' style='border-collapse: collapse;'>";
+         html += "<tr><th>Naziv</th><th>Autor</th><th>Cena</th></tr>";
+
+         for (let i = 0; i < knjige.length; i++) {
+             let naziv = knjige[i].getElementsByTagName("naziv")[0].textContent;
+             let autor = knjige[i].getElementsByTagName("autor")[0].textContent;
+             let cena = knjige[i].getElementsByTagName("cena")[0].textContent;
+             html += `<tr><td>${naziv}</td><td>${autor}</td><td>${cena}</td></tr>`;
+         }
+
+         html += "</table>";
+         container.innerHTML = html;
+     </script>
+
+     <h1 id="xmlnaslov">Primer za XML</h1>
+
+     <!-- DRUGA STRANA-->
+     <button id="poslednjastrana">Sledeća strana</button>
+     <h1 id="drugastrananaslov">XML komentari</h1>
+     <div id="drugastrana">
+         <p>Komentari su tekst koji XML parser ignoriše, tj. oni služe za beleške, objašnjenja ili napomene u kodu.</p>
+         <p>Ne prikazuju se na web stranici i ne utiču na podatke.</p>
+         <p style="font-weight: bold; font-size: 25px;">Vrste komentara:</p>
+         <p style="color: green; font-size:25px;">&lt;!-- Ovo komentar koji se koristi u HTML --&gt;</p>
+         <p style="color: green; font-size:25px;">/* Ovo je druga vrsta komentara koja se koristi u CSS */ </p>
+         <p style="color: green; font-size:25px;">// Ovo je treća vrsta komentara koja se koristi u JavaScript i većini programskih jezika // </p>
+         <p>Veoma je važno koristiti komentare u programiranju ako radimo u timu, ili se želimo podsetiti u budućnosti..</p>
+     </div>
+
+ </body>
+
+ <script src="script.js"></script> <!-- ovo spaja javascript sa ovim-->
+
+ </html>

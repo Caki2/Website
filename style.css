@@ -1,0 +1,206 @@
+﻿
+
+body {
+    background: #151921;
+    color: white;
+    font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+    overflow: hidden;
+}
+
+
+#glavni-naslov {
+    font-size: 50px;
+    color: #f3f3f5;
+    position: absolute;
+    right: 430px;
+    font-weight: bold;
+    bottom: 440px;
+    cursor: pointer;
+    transition: opacity 1s ease, transform 0.5s ease; /*Ovo da animacija ne bude instant nego da bude lepo*/
+}
+
+#tema {
+    color: #f1ffff !important;
+    position: absolute;
+    right: 1000px;
+    bottom: 50px;
+    transition: opacity 2s ease;
+    font-size: 23px;
+    pointer-events: none;
+    user-select: none;
+    font-family: 'Sitka Banner';
+    font-weight: bolder;
+    transition: opacity 1s ease, transform 0.5s ease; /*Ovo da animacija ne bude instant nego da bude lepo*/
+}
+
+#xml {
+    position: absolute;
+    right: 20px;
+    bottom: 470px;
+    width: 300px;
+    height: auto;
+    transition: opacity 2s ease;
+    pointer-events: none;
+    color: #ccc0b1;
+    user-select: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 1s ease, transform 0.5s ease; /*Ovo da animacija ne bude instant nego da bude lepo*/
+}
+
+#xmlnaslov {
+    position: absolute;
+    right: 80px;
+    bottom: 800px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ccc0b1;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 1s ease, transform 0.5s ease; /*Ovo da animacija ne bude instant nego da bude lepo*/
+}
+
+#drugastrana {
+    position: absolute !important;
+    right: 690px;
+    bottom: 400px !important;
+    font-size: 27px;
+    color: #f3f3f5;
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 1s ease, transform 0.5s ease; /*Ovo da animacija ne bude instant nego da bude lepo*/
+}
+
+#drugastrananaslov {
+    position: absolute !important;
+    bottom: 850px !important;
+    font-size: 50px;
+    color: #f3f3f5;
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 1s ease, transform 0.5s ease; /*Ovo da animacija ne bude instant nego da bude lepo*/
+}
+
+/*vracanje*/
+
+.vracanje {
+    opacity: 1;
+    transform: translateY(-410px) scale(0.8);
+    background-color: 001;
+}
+
+.vracanjetema {
+    opacity: 1;
+    
+}
+
+.vracanjedugme {
+    opacity: 1;
+    
+}
+
+#poslednjastrana.pokazi {
+    opacity: 1; /* da bude vidljivo */
+    pointer-events: auto; /* omogućava klik */
+    user-select: auto; /* omogućava selektovanje teksta */
+    transition: opacity 0.3s ease; /* glatko pojavljivanje */
+}
+
+.vracanjexml {
+    opacity: 1;
+}
+
+.vracanjexmlnaslov {
+    opacity: 1;
+}
+
+.vracanjedrugastrananaslov {
+    opacity: 1;
+}
+
+.vracanjedrugastrana {
+    opacity: 1;
+}
+/*nestajanje*/
+
+.nestajanje {
+    opacity: 0;
+    transform: scale(0.5); /*najbasic animacija kako nestaje prvi tekst, customizuj ako hoces*/
+}
+
+.nestajanjetema {
+    opacity: 0;
+    
+}
+
+.nestajanjedugme {
+    opacity: 0;
+    transform: translate(5000px, 5000px);
+}
+
+.nestajanjexml {
+    opacity: 0;
+}
+
+.nestajanjexmlnaslov {
+    opacity: 0;
+}
+
+.nestajanjedrugastrananaslov {
+    opacity: 0;
+}
+
+.nestajanjedrugastrana {
+    opacity: 0;
+    transform: scale(0.5); /*najbasic animacija kako nestaje prvi tekst, customizuj ako hoces*/
+}
+
+
+/*dugmići*/
+#sledecastrana {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #303134; 
+    color: white; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    #sledecastrana:hover{  /*Da kad stavi miš bude neka animacija*/
+        background-color: #34495e; 
+        transform: scale(1.05); 
+    }
+
+#poslednjastrana {
+    opacity: 0;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #303134;
+    pointer-events: none;
+    user-select: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+    #poslednjastrana:hover { 
+        background-color: #34495e;
+        transform: scale(1.05);
+    }
+
+
